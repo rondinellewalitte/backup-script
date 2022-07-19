@@ -26,7 +26,6 @@ BACKUP_FULL_PATH="$BACKUP_DIR/$BACKUP_FILENAME"
 
 
 AMAZON_S3_BUCKET="s3://$BUCKET_S3/backups/$PROJECT/site/$NOW_MONTH/"
-AMAZON_S3_BIN="/home/$USER/.local/bin/aws"
 
 # put the files and folder path here for backup
 CONF_FOLDERS_TO_BACKUP=("/etc/apache2/sites-available/$NAME_SITE.conf")
@@ -37,11 +36,11 @@ SITE_FOLDERS_TO_BACKUP=("/var/www/$NAME_SITE/" "/var/$DATA")
 mkdir -p ${BACKUP_DIR}
 
 backup_files(){
-        tar -czf ${BACKUP_DIR}/${BACKUP_FILENAME} ${CONF_FOLDERS_TO_BACKUP[@]} ${SITE_FOLDERS_TO_BACKUP[@]}
+        sudo tar -czf ${BACKUP_DIR}/${BACKUP_FILENAME} ${CONF_FOLDERS_TO_BACKUP[@]} ${SITE_FOLDERS_TO_BACKUP[@]}
 }
 
 upload_s3(){
-        ${AMAZON_S3_BIN} s3 cp ${BACKUP_FULL_PATH} ${AMAZON_S3_BUCKET}
+        aws s3 cp ${BACKUP_FULL_PATH} ${AMAZON_S3_BUCKET}
 }
 
 backup_files

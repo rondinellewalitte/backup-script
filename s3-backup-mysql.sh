@@ -15,21 +15,21 @@ DATE_FORMAT=$(date +"%Y-%m-%d")
 # MySQL server credentials
 MYSQL_HOST="localhost"
 MYSQL_PORT="3306"
-MYSQL_USER="backup"
-MYSQL_PASSWORD="password"
+MYSQL_USER=""
+MYSQL_PASSWORD=""
  
 # Path to local backup directory
-LOCAL_BACKUP_DIR="/home/rondinelle/backup"
+LOCAL_BACKUP_DIR=""
  
 # Set s3 bucket name and directory path
-S3_BUCKET_NAME="backupplataformdrr"
-S3_BUCKET_PATH="backups/pcrodinelle/backup-db"
+S3_BUCKET_NAME=""
+S3_BUCKET_PATH=""
  
 # Number of days to store local backup files
 BACKUP_RETAIN_DAYS=30 
  
 # Use a single database or space separated database's names
-DATABASES="teste"
+DATABASES=""
  
 ##### Do not change below this line
  

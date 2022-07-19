@@ -15,20 +15,22 @@
 NOW=$(date +"%Y-%m-%d")
 NOW_TIME=$(date +"%Y-%m-%d %T %p")
 NOW_MONTH=$(date +"%Y-%m")
-PROJECT="pcrondinele"
-NAME_SITE="inovweb.slgplataforma.com.br"
+PROJECT=""
+NAME_SITE=""
+BUCKET_S3=""
+DATA=""
 
 BACKUP_DIR="/home/$USER/backup/$NOW_MONTH"
 BACKUP_FILENAME="site-$NOW.tar.gz"
 BACKUP_FULL_PATH="$BACKUP_DIR/$BACKUP_FILENAME"
 
 
-AMAZON_S3_BUCKET="s3://backupplataformdrr/backups/$PROJECT/site/$NOW_MONTH/"
+AMAZON_S3_BUCKET="s3://$BUCKET_S3/backups/$PROJECT/site/$NOW_MONTH/"
 AMAZON_S3_BIN="/home/$USER/.local/bin/aws"
 
 # put the files and folder path here for backup
 CONF_FOLDERS_TO_BACKUP=("/etc/apache2/sites-available/$NAME_SITE.conf")
-SITE_FOLDERS_TO_BACKUP=("/var/www/$NAME_SITE/" "/var/moodledata")
+SITE_FOLDERS_TO_BACKUP=("/var/www/$NAME_SITE/" "/var/$DATA")
 
 #################################################################
 

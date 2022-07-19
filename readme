@@ -1,1 +1,7 @@
 chmod +x exemple.sh
+
+
+crontab -e 
+
+
+0 0 * * * * exemple.sh > /dev/null 2>&1
